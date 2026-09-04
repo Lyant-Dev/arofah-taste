@@ -3,7 +3,7 @@ const swiper = new Swiper(".swiper", {
   direction: "horizontal",
   loop: true,
   spaceBetween: 20,
-  
+
   // Konfigurasi jumlah slide berdasarkan lebar layar
   breakpoints: {
     320: {
@@ -21,4 +21,65 @@ const swiper = new Swiper(".swiper", {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
+});
+
+// ======= STATE =========
+// key: nama produk, value: {price, qty}
+const cart = {};
+// ====== FORMAT RUPIAH =======
+function formatRupiah(num) {
+  return "Rp" + num.toLocaleString("id-ID");
+}
+// ======== UPDATE FLOATING CART ==========
+function updateFloatingCart() {
+  const items = Object.values(cart).filter((item) => item.qty > 0);
+  const totalItems = items.reduce((sum, item) => sum + item.qty, 0);
+  const totalPrice = items.reduce(
+    (sum, item) => sum + item.qty * item.price,
+    0,
+  );
+
+  const floatingCart = document.querySelector("#floating-cart");
+  document.querySelector("#cart-count").textContent = `${totalItems} item`;
+  document.querySelector("#cart-total").textContent = formatRupiah(totalPrice);
+
+  // toggle cart
+  floatingCart.classList.toggle("active", totalItems > 0);
+
+  //update WA link
+  updateWALink(items, totalPrice);
+}
+// ========== BUILD PESAN WA =========
+function updateWALink(items, totalPrice) {
+  const checkOutBtn = document.querySelector("#cart-checkout");
+  const phoneNumber = "6285876119992";
+
+  let message = "Halo Arofah Taste, Saya mau order:\n";
+  items.forEach((item) => {
+    message += `- ${item.name} x${item.qty} = ${formatRupiah(item.qty * item.price)}\n`;
+  });
+  message += `\nTotal: ${formatRupiah(totalPrice)}`;
+  checkOutBtn.href = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+}
+
+// EVENT LISTENER TIAP CARD
+document.querySelectorAll(".menu-card").forEach((card) => {
+  const name = card.dataset.name;
+  const price = parseInt(card.dataset.price, 10);
+  const qtyDisplay = card.querySelector(".item-qty");
+
+  cart[name] = { price, qty: 0, name };
+
+  card.querySelector(".add-item").addEventListener("click", () => {
+    cart[name].qty++;
+    qtyDisplay.textContent = cart[name].qty;
+    updateFloatingCart();
+  });
+  card.querySelector(".remove-item").addEventListener("click", () => {
+    if (cart[name].qty > 0) {
+      cart[name].qty--;
+      qtyDisplay.textContent = cart[name].qty;
+      updateFloatingCart();
+    }
+  });
 });

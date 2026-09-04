@@ -31,10 +31,6 @@
   --radius-btn: 999px;
 }
 
-html {
-  scrollbar-gutter: stable overlay;
-}
-
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -470,4 +466,61 @@ footer {
   background: var(--color-charcoal);
   color: var(--color-white);
   font-size: 0.9rem;
+}
+
+/* ============ FLOATING CART =========== */
+.floating-cart {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--color-charcoal);
+  color: var(--color-white);
+  display: flex;
+  padding: var(--space-md) var(--space-xl);
+  justify-content: space-between;
+  align-items: center;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  z-index: 200;
+}
+.floating-cart.active {
+  transform: translateY(0);
+}
+.floating-cart-info {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+}
+.cart-total {
+  color: var(--color-orange);
+  font-weight: 600;
+}
+.menu-qty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-sm) var(--space-md) var(--space-md);
+  gap: var(--space-md);
+}
+.menu-qty span {
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.add-item,
+.remove-item {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 600;
+  background: var(--color-cream);
+}
+.item-qty {
+    min-width: 20px;
+    text-align: center;
+    font-weight: 600;
 }
