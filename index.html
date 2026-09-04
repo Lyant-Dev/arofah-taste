@@ -6,14 +6,29 @@
     <title>Arofah Taste - From Sweet to Savory, All in One Taste</title>
     <!-- ============= CSS ============ -->
     <link rel="stylesheet" href="style.css" />
+    <!-- =========== FONT ========= -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- ======== REMIX ICONS ========= -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <!-- =========== SWIPER ============ -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+    />
   </head>
   <body>
     <!-- =========== NAVBAR ========== -->
-
     <header class="navbar-section" id="navbar">
-      <a href="#" class="logo"
-        ><img src="assets/logo.png" alt="Arofah Taste"
-      /></a>
+      <div class="navbar-accent"></div>
+      <a href="#" class="logo">
+        <img src="assets/logo.png" alt="Arofah Taste" />
+      </a>
       <nav class="navbar-menu">
         <ul>
           <li><a href="#menu">Menu</a></li>
@@ -22,84 +37,155 @@
           <li><a href="#contact">Kontak</a></li>
         </ul>
       </nav>
+      <a href="#menu" class="cart-icon" aria-label="Lihat Menu">
+        <i class="ri-shopping-cart-line"></i>
+      </a>
     </header>
 
     <!-- =========== HERO ========== -->
     <section class="hero-section" id="hero">
+      <img
+        src="assets/hero-img-1.png"
+        alt="Hero Image"
+        class="hero-image hero-image-left"
+      />
       <div class="hero-content">
-        <h1>From Sweet to Savory, All in One Taste</h1>
-        <p>Kue kering premium, dibuat fresh setiap pesanan.</p>
+        <img src="assets/logo.png" alt="Arofah Taste" />
+        <h1><span>From Sweet to Savory</span>, All in One Taste</h1>
+        <p>Kue kering premium, <span>dibuat fresh setiap pesanan</span>.</p>
         <a href="#contact" class="btn-cta">Order Sekarang</a>
       </div>
+      <img
+        src="assets/hero-img-2.png"
+        alt="Hero Image"
+        class="hero-image hero-image-right"
+      />
     </section>
 
     <!-- =========== MENU ========= -->
     <section class="menu-section" id="menu">
-      <h2>Menu Kami</h2>
-      <div class="menu-grid">
-        <article class="menu-card">
-          <img src="assets/nastar.png" alt="Nastar Keju" />
-          <h3>Nastar Keju</h3>
-          <p class="price">Rp30.000 / 250gr</p>
-        </article>
-        <article class="menu-card">
-          <img src="assets/strawberry-cheese.png" alt="Strawberry Cheese" />
-          <h3>Strawberry Cheese</h3>
-          <p class="price">Rp30.000 / 250gr</p>
-        </article>
-        <article class="menu-card">
-          <img src="assets/putri-salju.png" alt="Putri Salju" />
-          <h3>Putri Salju</h3>
-          <p class="price">Rp30.000 / 250gr</p>
-        </article>
-        <article class="menu-card">
-          <img src="assets/peanut-choco.png" alt="Peanut Choco Cookies" />
-          <h3>Peanut Choco Cookies</h3>
-          <p class="price">Rp30.000 / 250gr</p>
-        </article>
-        <article class="menu-card">
-          <img src="assets/kastangel.png" alt="Kastangel" />
-          <h3>Kastangel</h3>
-          <p class="price">Rp35.000 / 250gr</p>
-        </article>
-        <article class="menu-card">
-          <img src="assets/placeholder.jpg" alt="Hampers Package" />
-          <h3>Hampers Package (Free Totebag)</h3>
-          <p class="price">Rp160.000</p>
-        </article>
+      <h2><span>Menu</span> Kami</h2>
+      <div class="swiper-container">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <article class="menu-card">
+                <img src="assets/nastar.png" alt="Nastar Keju" />
+                <h3>Nastar Keju</h3>
+                <p class="price">Rp30.000 / 250gr</p>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="menu-card">
+                <img
+                  src="assets/strawberry-cheese.png"
+                  alt="Strawberry Cheese"
+                />
+                <h3>Strawberry Cheese</h3>
+                <p class="price">Rp30.000 / 250gr</p>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="menu-card">
+                <img src="assets/putri-salju.png" alt="Putri Salju" />
+                <h3>Putri Salju</h3>
+                <p class="price">Rp30.000 / 250gr</p>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="menu-card">
+                <img src="assets/peanut-choco.png" alt="Peanut Choco Cookies" />
+                <h3>Peanut Choco</h3>
+                <p class="price">Rp30.000 / 250gr</p>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="menu-card">
+                <img src="assets/kastangel.png" alt="Kastangel" />
+                <h3>Kastangel</h3>
+                <p class="price">Rp35.000 / 250gr</p>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="menu-card">
+                <img src="assets/hampers.png" alt="Hampers Package" />
+                <h3>Hampers Package (Free Totebag)</h3>
+                <p class="price">Rp160.000</p>
+              </article>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
       </div>
+
       <div class="menu-group">
-        <h3>SALT BREAD SEASON</h3>
-        <div class="salt-bread">
-          <img src="assets/salt-bread.png" alt="Salt Bread" />
-          <article class="menu-card">
-            <h3>Original</h3>
-            <p class="price">Rp6000</p>
-          </article>
-          <article class="menu-card">
-            <h3>Coffee Choco</h3>
-            <p class="price">Rp8000</p>
-          </article>
-          <article class="menu-card">
-            <h3>Garlic Cheese</h3>
-            <p class="price">Rp10.000</p>
-          </article>
+        <h3><span>SALT BREAD</span> SEASON</h3>
+        <div class="menu-grid">
+          <div class="salt-bread">
+            <!-- Gambar Dekorasi Kiri -->
+            <img
+              src="assets/salt-bread-left.png"
+              alt=""
+              class="salt-decor salt-decor-left"
+            />
+
+            <div class="salt-bread-content">
+              <!-- Pembungkus 3 Kartu Menu -->
+              <div class="salt-bread-cards">
+                <article class="menu-card">
+                  <img src="assets/coffee-choco.png" alt="Coffee Choco" />
+                  <h3>Coffee Choco</h3>
+                  <p class="price">Rp8.000 / Pcs</p>
+                </article>
+
+                <article class="menu-card">
+                  <img src="assets/original.png" alt="Original" />
+                  <h3>Original</h3>
+                  <p class="price">Rp6.000 / Pcs</p>
+                </article>
+
+                <article class="menu-card">
+                  <img src="assets/garlic-cheese.png" alt="Garlic Cheese" />
+                  <h3>Garlic Cheese</h3>
+                  <p class="price">Rp10.000 / Pcs</p>
+                </article>
+              </div>
+
+              <!-- Gambar Packaging Box -->
+              <img
+                src="assets/salt-bread.png"
+                alt="Salt Bread Box"
+                class="salt-bread-box"
+              />
+            </div>
+
+            <!-- Gambar Dekorasi Kanan -->
+            <img
+              src="assets/salt-bread-right.png"
+              alt=""
+              class="salt-decor salt-decor-right"
+            />
+          </div>
         </div>
       </div>
     </section>
     <!-- ==========  ABOUT =========  -->
     <section class="about-section" id="about">
-      <h2>Tentang Arofah Taste</h2>
-      <p>
-        Dengan pengalaman dan percobaan yang sudah dilalui berkali-kali, kami
-        dengan percaya diri menyajikan kue kering dengan berbagai tekstur dan
-        rasa. Dan jangan lewatkan "Salt Bread Season" versi kami!
-      </p>
+      <img src="assets/about-img.png" alt="About Image" class="about-image " />
+      <div class="about-content">
+        <h2>Tentang <span>Kami</span></h2>
+        <p>
+          Dengan pengalaman dan percobaan yang sudah dilalui berkali-kali, kami
+          dengan percaya diri menyajikan kue kering dengan berbagai tekstur dan
+          rasa. Dan jangan lewatkan "Salt Bread Season" versi kami!
+        </p>
+      </div>
     </section>
 
     <!-- ========= TESTIMONI =========  -->
     <section class="testimoni" id="testimoni">
-      <h2>Kata Mereka</h2>
+      <h2><span>Kata</span> Mereka</h2>
       <div class="testimoni-list">
         <blockquote>
           <p><!-- review --></p>
@@ -125,7 +211,8 @@
     <footer>
       <p>&copy; 2026 Arofah Taste. All rights reserved.</p>
     </footer>
-
+    <!-- ============ SWIPER JS ============ -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <!-- ============== APP JS ============== -->
     <script src="app.js"></script>
   </body>

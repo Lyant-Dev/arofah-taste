@@ -1,0 +1,473 @@
+@import url("https://fonts.googleapis.com/css2?family=Caacupe+One&display=swap");
+
+/* ============ RESET & VARIABLES ============ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-charcoal: #2b2b2b;
+  --color-orange: #d98a34;
+  --color-orange-dark: #b8721f;
+  --color-cream: #f7f3ec;
+  --color-white: #ffffff;
+  --color-text-muted: #6b6b6b;
+  --color-border: #e5ddd0;
+
+  --font-heading: "Playfair Display", serif;
+  --font-menu: "Caacupe One", sans-serif;
+  --font-body: "Poppins", sans-serif;
+
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+
+  --radius-card: 12px;
+  --radius-btn: 999px;
+}
+
+html {
+  scrollbar-gutter: stable overlay;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-orange);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-orange-dark);
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-charcoal);
+  background: var(--color-cream);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+span {
+  color: var(--color-orange);
+}
+
+.btn-cta {
+  display: inline-block;
+  background: var(--color-orange);
+  color: var(--color-white);
+  padding: 0.75rem 2rem;
+  border-radius: var(--radius-btn);
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.btn-cta:hover {
+  background: var(--color-orange-dark);
+}
+
+/* ============ NAVBAR ============ */
+.navbar-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* Kurangi padding atas-bawah dari var(--space-md) ke 0.5rem */
+  padding: 0.5rem var(--space-xl);
+  padding-left: calc(var(--space-xl) + 32px);
+  background: var(--color-white);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.navbar-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 56px;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    var(--color-orange) 50%,
+    var(--color-charcoal) 50%
+  );
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.logo img {
+  width: 100px;
+  height: auto;
+  aspect-ratio: auto; /* Lepas aspect-ratio 1/1 biar gak ketarik */
+  object-fit: contain;
+}
+
+.navbar-menu ul {
+  display: flex;
+  gap: var(--space-lg);
+  padding-right: 1rem;
+}
+
+.navbar-menu a {
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.navbar-menu a:hover {
+  color: var(--color-orange);
+}
+
+.cart-icon {
+  display: flex;
+  align-items: center;
+  color: var(--color-charcoal);
+  transition: color 0.2s ease;
+}
+
+.cart-icon i {
+  padding: 0.2rem;
+  border-radius: 25px;
+  background-color: var(--color-orange);
+  font-size: 24px;
+  color: var(--color-charcoal);
+  transition: color 0.2s ease;
+}
+
+.cart-icon:hover i {
+  color: var(--color-charcoal);
+}
+
+/* ============ HERO ============ */
+.hero-section {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-xl);
+  background: linear-gradient(
+    180deg,
+    var(--color-cream) 0%,
+    var(--color-white) 100%
+  );
+  overflow: hidden;
+  padding-top: 0px;
+}
+
+.hero-content {
+  width: min(700px, 50%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content > img {
+  width: 250px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.hero-content h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: var(--space-md);
+  line-height: 1.05;
+}
+
+.hero-content p {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+  font-size: 1.1rem;
+}
+
+.hero-image {
+  position: absolute;
+  width: clamp(220px, 25vw, 430px);
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-image-left {
+  left: -10px;
+  bottom: -20px;
+  top: 100px;
+}
+
+.hero-image-right {
+  right: -100px;
+  bottom: -20px;
+  top: 150px;
+}
+
+/* ============ SWIPER ============ */
+.swiper-container {
+  position: relative;
+  padding: 0 50px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.swiper {
+  width: 100%;
+  padding: 10px 5px 25px;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: var(--color-orange) !important;
+  width: 22px;
+  height: 22px;
+  transition: all 0.2s ease;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  color: var(--color-orange) !important;
+  font-size: 1.2rem !important;
+  font-weight: bold;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  color: var(--color-orange-dark) !important;
+  transform: scale(1.15);
+}
+
+.swiper-button-prev {
+  left: 10px;
+}
+
+.swiper-button-next {
+  right: 10px;
+}
+
+/* ============ MENU ============ */
+.menu-section {
+  padding: var(--space-xl);
+}
+
+.menu-section > h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: var(--space-lg);
+}
+
+.menu-grid {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.menu-card {
+  background: var(--color-white);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.menu-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.menu-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+}
+
+.menu-card h3 {
+  font-size: 1.1rem;
+  padding: var(--space-md) var(--space-md) 0;
+  font-family: var(--font-menu);
+  letter-spacing: 2px;
+}
+
+.menu-card .price {
+  color: var(--color-orange-dark);
+  font-weight: 600;
+  padding: var(--space-sm) var(--space-md) var(--space-md);
+}
+
+/* ============ SALT BREAD GROUP ============ */
+.menu-group {
+  margin-top: var(--space-xl);
+  text-align: center;
+}
+
+.menu-group h3 {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-lg);
+}
+
+.salt-bread {
+  position: relative;
+  overflow: hidden; /* Memotong gambar dekorasi di pinggir border */
+  padding: var(--space-lg);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Pembungkus utama untuk kartu menu & box packaging */
+.salt-bread-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+/* Grid khusus untuk 3 kartu menu Salt Bread */
+.salt-bread-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  width: 100%;
+}
+
+/* Gambar Dus/Packaging Salt Bread di bawah kartu */
+.salt-bread-box {
+  width: 260px;
+  height: auto;
+  margin-top: var(--space-sm);
+}
+
+/* Gambar Hiasan Melayang (Kiri & Kanan) */
+.salt-decor {
+  position: absolute;
+  width: 400px;
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.salt-decor-left {
+  left: -180px; /* Nilai minus untuk efek terpotong */
+  top: 75%;
+  transform: translateY(-50%);
+}
+
+.salt-decor-right {
+  right: -180px; /* Nilai minus untuk efek terpotong */
+  top: 75%;
+  transform: translateY(-50%);
+}
+
+/* Rotasi khusus gambar ke-3 (Garlic Cheese) */
+.salt-bread-cards .menu-card:nth-child(3) img {
+  transform: rotate(40deg);
+}
+
+/* ============ ABOUT ============ */
+.about-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  padding: 80px 10%;
+}
+
+.about-content {
+  max-width: 600px;
+}
+
+.about-content h2 {
+  font-size: 3rem;
+  margin-bottom: 25px;
+}
+
+.about-content p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+.about-image {
+  width: 350px;
+  height: auto;
+}
+
+/* ============ TESTIMONI ============ */
+.testimoni {
+  padding: var(--space-xl);
+  background: var(--color-white);
+  text-align: center;
+}
+
+.testimoni h2 {
+  font-size: 2rem;
+  margin-bottom: var(--space-lg);
+}
+
+/* ============ CONTACT ============ */
+.contact-section {
+  padding: var(--space-xl);
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 2rem;
+  margin-bottom: var(--space-sm);
+}
+
+.contact-section p {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+.lokasi {
+  margin-top: var(--space-lg);
+}
+
+/* ============ FOOTER ============ */
+footer {
+  text-align: center;
+  padding: var(--space-lg);
+  background: var(--color-charcoal);
+  color: var(--color-white);
+  font-size: 0.9rem;
+}
