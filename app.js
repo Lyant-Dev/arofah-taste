@@ -45,7 +45,8 @@ function updateFloatingCart() {
 
   // toggle cart
   floatingCart.classList.toggle("active", totalItems > 0);
-
+  
+  renderOrderSummary();
   //update WA link
   updateWALink(items, totalPrice);
 }
@@ -82,4 +83,24 @@ document.querySelectorAll(".menu-card").forEach((card) => {
       updateFloatingCart();
     }
   });
+});
+// Update Total harga checkout
+function renderOrderSummary() {
+  const items = Object.values(cart).filter((item) => item.qty > 0);
+  const totalPrice = items.reduce(
+    (sum, item) => sum + item.qty * item.price,
+    0,
+  );
+  const itemList = items.map((item) => {
+    return `<li>${item.name} x${item.qty} = ${formatRupiah(item.qty * item.price)}</li>`;
+  });
+  const renderOrder = itemList.join("");
+  document.querySelector("#orderSummaryList").innerHTML = renderOrder;
+  const checkoutTotal = document.querySelector("#checkoutTotal");
+  checkoutTotal.textContent`Total: ${formatRupiah(totalPrice)}`;
+}
+const checkout = document.querySelector("#cart-checkout");
+checkOut.addEventListener("click", (e) => {
+  e.preventDefault();
+  renderOrderSummary();
 });
