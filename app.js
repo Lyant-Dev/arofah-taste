@@ -45,14 +45,14 @@ function updateFloatingCart() {
 
   // toggle cart
   floatingCart.classList.toggle("active", totalItems > 0);
-  
+
   renderOrderSummary();
   //update WA link
   updateWALink(items, totalPrice);
 }
 // ========== BUILD PESAN WA =========
 function updateWALink(items, totalPrice) {
-  const checkOutBtn = document.querySelector("#cart-checkout");
+  const checkoutBtn = document.querySelector("#cart-checkout");
   const phoneNumber = "6285876119992";
 
   let message = "Halo Arofah Taste, Saya mau order:\n";
@@ -60,7 +60,7 @@ function updateWALink(items, totalPrice) {
     message += `- ${item.name} x${item.qty} = ${formatRupiah(item.qty * item.price)}\n`;
   });
   message += `\nTotal: ${formatRupiah(totalPrice)}`;
-  checkOutBtn.href = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+  checkoutBtn.href = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 }
 
 // EVENT LISTENER TIAP CARD
@@ -97,10 +97,20 @@ function renderOrderSummary() {
   const renderOrder = itemList.join("");
   document.querySelector("#orderSummaryList").innerHTML = renderOrder;
   const checkoutTotal = document.querySelector("#checkoutTotal");
-  checkoutTotal.textContent`Total: ${formatRupiah(totalPrice)}`;
-}
-const checkout = document.querySelector("#cart-checkout");
-checkOut.addEventListener("click", (e) => {
-  e.preventDefault();
-  renderOrderSummary();
+  checkoutTotal.textContent = `Total: ${formatRupiah(totalPrice)}`;
+  // add error message
+document.querySelector("#cart-checkout").addEventListener("click", (e) => {
+  const customerName = document.querySelector("#customerName");
+  const errorMessage = document.querySelector("#nameError")
+  if (customerName.value.trim() === "") {
+    e.preventDefault();
+    customerName.classList.add("input-error");
+    errorMessage.classList.add("show")
+    c
+  } else {
+    customerName.classList.remove("input-error");
+  }
 });
+}
+
+
