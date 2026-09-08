@@ -99,18 +99,37 @@ function renderOrderSummary() {
   const checkoutTotal = document.querySelector("#checkoutTotal");
   checkoutTotal.textContent = `Total: ${formatRupiah(totalPrice)}`;
   // add error message
+}
 document.querySelector("#cart-checkout").addEventListener("click", (e) => {
   const customerName = document.querySelector("#customerName");
-  const errorMessage = document.querySelector("#nameError")
+  const errorMessage = document.querySelector("#nameError");
   if (customerName.value.trim() === "") {
     e.preventDefault();
     customerName.classList.add("input-error");
-    errorMessage.classList.add("show")
-    c
+    errorMessage.classList.add("show");
   } else {
     customerName.classList.remove("input-error");
+    errorMessage.classList.remove("show");
   }
 });
-}
 
+// ====== HAMBURGER MENU ========
+const hamburgerBtn = document.querySelector("#hamburger-btn");
+const navbarMenu = document.querySelector("#navbar-menu");
 
+hamburgerBtn.addEventListener("click", (e) => {
+  navbarMenu.classList.toggle("open");
+  const icon = hamburgerBtn.querySelector("i");
+  icon.classList.toggle("ri-menu-line");
+  icon.classList.toggle("ri-close-line");
+});
+
+// tutup menu otomatis apabila salah satu link nav diklik
+navbarMenu.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => {
+    navbarMenu.classList.remove("open");
+    const icon = hamburgerBtn.querySelector("i");
+    icon.classList.toggle("ri-menu-line");
+    icon.classList.toggle("ri-close-line");
+  });
+});

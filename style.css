@@ -166,6 +166,15 @@ span {
 .cart-icon:hover i {
   color: var(--color-charcoal);
 }
+.hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--color-orange);
+  cursor: pointer;
+   z-index: 200;
+}
 
 /* ============ HERO ============ */
 .hero-section {
@@ -588,4 +597,85 @@ footer {
 
 #checkoutTotal {
   color: var(--color-orange-dark);
+}
+
+/* ============ MOBILE RESPONSIVE ============ */
+@media screen and (max-width: 786px) {
+  .navbar-section {
+    padding-left: calc(var(--space-md) + 32px);
+    padding-right: var(--space-md);
+  }
+  .hamburger-btn {
+    display: block;
+  }
+  .cart-icon i {
+    display: none;
+  }
+  .navbar-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    max-width: 300px;
+    height: 100vh;
+    background: var(--color-white);
+    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+    z-index: 150;
+    padding: var(--space-xl) var(--space-lg);
+  }
+  .navbar-menu.open {
+    right: 0;
+  }
+  .navbar-menu > ul {
+    flex-direction: column;
+    gap: var(--space-lg);
+    padding-right: 0;
+    transition: color 0.3s ease;
+    cursor: pointer;
+  }
+  .navbar-menu > ul > li:hover {
+    color: var(--color-orange);
+  }
+  /* Hero */
+  .hero-content {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .hero-image {
+    opacity: 0.5; /* biar gak nutupin teks di layar sempit */
+  }
+
+  /* About */
+  .about-section {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--space-xl) var(--space-md);
+    gap: var(--space-lg);
+  }
+
+  .about-content h2 {
+    font-size: 2rem;
+  }
+
+  /* Salt bread decor - sembunyiin di mobile, kekecilan layar buat nampung */
+  .salt-decor {
+    display: none;
+  }
+
+  .salt-bread-cards {
+    grid-template-columns: 1fr;
+  }
+
+  /* Floating cart */
+  .floating-cart {
+    padding: var(--space-sm) var(--space-md);
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .floating-cart-info {
+    font-size: 0.8rem;
+  }
 }
