@@ -23,6 +23,11 @@ const swiper = new Swiper(".swiper", {
   },
 });
 
+AOS.init({
+  duration: 800,   // durasi animasi (ms)
+  once: true,      // animasi cuma jalan sekali, gak berulang tiap scroll naik-turun
+});
+
 // ======= STATE =========
 // key: nama produk, value: {price, qty}
 const cart = {};
@@ -129,7 +134,7 @@ navbarMenu.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", () => {
     navbarMenu.classList.remove("open");
     const icon = hamburgerBtn.querySelector("i");
-    icon.classList.toggle("ri-menu-line");
-    icon.classList.toggle("ri-close-line");
+    icon.classList.remove("ri-close-line");
+    icon.classList.add("ri-menu-line");
   });
 });

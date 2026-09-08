@@ -21,6 +21,8 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
     />
+    <!-- ========== ANIMATION ON SCROLL ========= -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
   </head>
   <body>
     <!-- =========== NAVBAR ========== -->
@@ -43,15 +45,18 @@
         class="hamburger-btn"
         id="hamburger-btn"
         aria-label="Hamburger Menu"
-      ><i class="ri-menu-line"></i></button>
+      >
+        <i class="ri-menu-line"></i>
+      </button>
     </header>
 
     <!-- =========== HERO ========== -->
-    <section class="hero-section" id="hero">
+    <section class="hero-section" id="hero" data-aos="fade-down">
       <img
         src="assets/hero-img-1.png"
         alt="Hero Image"
         class="hero-image hero-image-left"
+        data-aos="fade-right"
       />
       <div class="hero-content">
         <img src="assets/logo.png" alt="Arofah Taste" />
@@ -63,6 +68,7 @@
         src="assets/hero-img-2.png"
         alt="Hero Image"
         class="hero-image hero-image-right"
+        data-aos="fade-left"
       />
     </section>
 
@@ -77,6 +83,8 @@
                 class="menu-card"
                 data-name="Nastar Keju"
                 data-price="30000"
+                data-aos="fade-up"
+                data-aos-delay="100"
               >
                 <img src="assets/nastar.png" alt="Nastar Keju" />
                 <h3>Nastar Keju</h3>
@@ -93,6 +101,8 @@
                 class="menu-card"
                 data-name="Strawberry Cheese"
                 data-price="30000"
+                data-aos="fade-up"
+                data-aos-delay="100"
               >
                 <img
                   src="assets/strawberry-cheese.png"
@@ -112,6 +122,8 @@
                 class="menu-card"
                 data-name="Putri Salju"
                 data-price="30000"
+                data-aos="fade-up"
+                data-aos-delay="100"
               >
                 <img src="assets/putri-salju.png" alt="Putri Salju" />
                 <h3>Putri Salju</h3>
@@ -128,6 +140,8 @@
                 class="menu-card"
                 data-name="Peanut Choco"
                 data-price="30000"
+                data-aos="fade-up"
+                data-aos-delay="100"
               >
                 <img src="assets/peanut-choco.png" alt="Peanut Choco" />
                 <h3>Peanut Choco</h3>
@@ -144,6 +158,8 @@
                 class="menu-card"
                 data-name="Kastangel"
                 data-price="35000"
+                data-aos="fade-up"
+                data-aos-delay="100"
               >
                 <img src="assets/kastangel.png" alt="Kastangel" />
                 <h3>Kastangel</h3>
@@ -160,6 +176,8 @@
                 class="menu-card"
                 data-name="Hampers Package"
                 data-price="160000"
+                data-aos="fade-up"
+                data-aos-delay="100"
               >
                 <img src="assets/hampers.png" alt="Hampers Package" />
                 <h3>Hampers Package (Free Totebag)</h3>
@@ -195,6 +213,8 @@
                   class="menu-card"
                   data-name="Coffee Choco Salt Bread"
                   data-price="8000"
+                  data-aos="fade-up"
+                  data-aos-delay="100"
                 >
                   <img src="assets/coffee-choco.png" alt="Coffee Choco" />
                   <h3>Coffee Choco</h3>
@@ -210,6 +230,8 @@
                   class="menu-card"
                   data-name="Original Salt Bread"
                   data-price="6000"
+                  data-aos="fade-up"
+                  data-aos-delay="100"
                 >
                   <img src="assets/original.png" alt="Original" />
                   <h3>Original</h3>
@@ -225,6 +247,8 @@
                   class="menu-card"
                   data-name="Garlic Cheese Salt Bread"
                   data-price="10000"
+                  data-aos="fade-up"
+                  data-aos-delay="100"
                 >
                   <img src="assets/garlic-cheese.png" alt="Garlic Cheese" />
                   <h3>Garlic Cheese</h3>
@@ -256,7 +280,7 @@
       </div>
     </section>
     <!-- ========= CHECKOUT ========== -->
-    <section class="checkout" id="checkout">
+    <section class="checkout" id="checkout" data-aos="fade-down">
       <input type="text" placeholder="Nama" id="customerName" />
       <p id="nameError" class="error-message">Nama wajib diisi!</p>
       <ul id="orderSummaryList"></ul>
@@ -264,8 +288,13 @@
       <a href="#" id="cart-checkout" class="btn-cta">Checkout via WA</a>
     </section>
     <!-- ==========  ABOUT =========  -->
-    <section class="about-section" id="about">
-      <img src="assets/about-img.png" alt="About Image" class="about-image" />
+    <section class="about-section" id="about" data-aos="fade-right">
+      <img
+        src="assets/about-img.png"
+        alt="About Image"
+        class="about-image"
+        data-aos="fade-left"
+      />
       <div class="about-content">
         <h2>Tentang <span>Kami</span></h2>
         <p>
@@ -277,7 +306,7 @@
     </section>
 
     <!-- ============ CONTACT ============  -->
-    <section class="contact-section" id="contact">
+    <section class="contact-section" id="contact" data-aos="fade-up">
       <h2>Order Sekarang</h2>
       <p>Hubungi kami via WhatsApp untuk pemesanan.</p>
       <a
@@ -287,7 +316,6 @@
         rel="noopener"
         >Chat WhatsApp</a
       >
-      <p class="lokasi"><!-- alamat/kota --></p>
     </section>
     <!-- FOOTER -->
     <footer>
@@ -302,8 +330,12 @@
       </div>
       <a href="#checkout" class="btn-cta">Checkout via WA</a>
     </div>
+
     <!-- ============ SWIPER JS ============ -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+    <!-- ============ ANIMATION ON SCROLL JS ============ -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- ============== APP JS ============== -->
     <script src="app.js"></script>
   </body>
