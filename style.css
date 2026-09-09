@@ -229,17 +229,18 @@ span {
   height: auto;
   z-index: 1;
   pointer-events: none;
+ filter: opacity(80%);
 }
 
 .hero-image-left {
-  left: -80px;
+  left: -60px;
   bottom: -20px;
   top: 150px;
   opacity: 0.5;
 }
 
 .hero-image-right {
-  right: -80px;
+  right: -90px;
   bottom: -20px;
   top: 150px;
   opacity: 0.5;
@@ -652,20 +653,7 @@ footer {
     height: auto;
     z-index: 1;
     pointer-events: none;
-  }
-
-  .hero-image-left {
-    left: -50px;
-    bottom: -20px;
-    top: 200px;
-    opacity: 0.5;
-  }
-
-  .hero-image-right {
-    right: -50px;
-    bottom: -20px;
-    top: 200px;
-    opacity: 0.5;
+    filter: opacity(50%);
   }
 
   /* About */
